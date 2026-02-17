@@ -2,25 +2,17 @@
 % Aislinn Hurley, Duke University, 2/16/26
 
 %% Load a .png image of the test target 
-% Taken in same lighting as imaging session will have
-% Prior to loading, make sure target appears horizontal (5 high by 6 wide)
-% and dark brown is int he top right corner
-load_name = 'target_test';
+
+load_name = 'target';
 img = imread([load_name '.png']);
 
-% Load and average 10 images
-
-    % Load background image
-
 % Background subtraction
-
-
-
-%% Colorchecker
-
-init_name = 'matlab_test';
-init = imread([init_name '.png']);
-chart = colorChecker(init);
+load_bgd_name = 'background';
+try
+    bgd = imread([load_bgd_name '.png']);
+    img = img - bgd;
+catch
+end
 
 %%
 figure(1)
