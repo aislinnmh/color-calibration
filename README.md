@@ -1,7 +1,7 @@
 # color-calibration
 Color calibration software for the Image Science Associates ColorGauge target, which includes 18 GretagMacbeth ColorChecker squares and 12 gray squares.
 
-Step 1: Take image(s) of the calibration target
+Step 1: Take image(s) of the calibration target and background (optional).
 
 You need minimum one image of the calibration target. Best practice is to take several images of the target and average them to improve SNR, and a few averaged background images to remove DC. Be sure to:
 - Take image(s) in the same lighting you will be using during imaging
@@ -11,6 +11,7 @@ You need minimum one image of the calibration target. Best practice is to take s
     - Multiple images - targetX.png, X=1-N
     - Background image - background.png
     - Multiple bakcground images - backgroundX.png, X=1-N
+- Save images into the color-calibration folder
 
 Step 2: Run preprocess.m if you are using multiple target or background images
 

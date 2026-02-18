@@ -15,7 +15,7 @@ catch
 end
 
 %%
-figure(1)
+f1 = figure(1)
 imshow(img)
 title('Select the four corners of the color calibration target.')
 [xi,yi] = getpts;
@@ -84,7 +84,7 @@ gridPos = reshape(gridPos2,2,5,6);
 
 %%
 % Draw ROI
-figure(2)
+f2 = figure(2)
 imshow(img)
 hold on
 scatter(gridPos2(1,:), gridPos2(2,:),"square",'y','LineWidth',2)
@@ -194,7 +194,7 @@ CCM = RGB \ true_RGB;
 img_col = double(reshape(img,xlen*ylen,3));
 img_col_corr = img_col*CCM;
 img_corr = reshape(img_col_corr,ylen,xlen,3);
-figure(4)
+f3 = figure(3)
 subplot(1,2,1)
 imshow(img_corr/255)
 title('Color Corrected Image')
@@ -261,7 +261,7 @@ for i = 19:30
     end
 end
 
-figure(5)
+f4 = figure(4)
 subplot(1,2,1)
 imshow(img_corr/255)
 title('Color Corrected Image')
@@ -274,3 +274,10 @@ title('Simulated Ground Truth')
 
 % Save CCM in a csv file
 csvwrite("CCM.csv",CCM);
+
+
+%% Save figures
+saveas(f2,'detected_rois.png')
+saveas(f3,'corrected_v_original.png')
+saveas(f4,'corrected_v_truth.png')
+

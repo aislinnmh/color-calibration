@@ -6,13 +6,13 @@ X = 1;
 while run == 1
     try % Load next image, if it exists
         img = imread([load_name num2str(X) '.png']); 
-        imgs = cat(4,imgs,img);
+        imgs = [imgs;[];[]; img];
         X = X + 1;
     catch
         run = 0;
     end
 end
-avgImg = mean(imgs,4); % Average the loaded images
+avgImg = mean(imgs,1); % Average the loaded images
 imwrite(uint8(avgImg), 'target.png'); % Save the averaged image
 
 %% Repeat for background images
@@ -23,25 +23,21 @@ X = 1;
 while run == 1
     try
         bgd = imread([load_bgd_name num2str(X) '.png']);
-        bgds = cat(4,bgds,bgd);
+        bgds = [bgds; bgd];
         X = X + 1;
     catch
         run = 0;
     end
 end
-avgBgd = mean(bgds,4);
+avgBgd = mean(bgds,1);
 imwrite(uint8(avgBgd), 'background.png')
 
 %% Display Results
 
-f = figure(1)
+figure(1)
 subplot(1,2,1)
 imshow(uint8(avgImg))
 title('Target')
 subplot(1,2,2)
 imshow(uint8(avgBgd))
 title('Background')
-
-%% Save figure
-
-saveas(f,'avg_inputs.png')
