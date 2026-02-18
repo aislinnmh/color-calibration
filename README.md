@@ -15,7 +15,7 @@ You need minimum one image of the calibration target. Best practice is to take s
 
 Step 2: Run preprocess.m if you are using multiple target or background images
 
-This will save a single target.png and background.png automatically.
+This will save a single target.png and background.png automatically. It will run with any number of target and background images, as long as the naming conventions are followed.
 
 Step 3: Run color_calibration.m
 - Select the four corner of the target in the image. The squares are then automatically detected and assigned to their true color.
