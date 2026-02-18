@@ -162,12 +162,10 @@ end
 
 RGB = [RGB_colors; RGB_grays];
 
-%% Load true RGB values corresponding to each ROI
+%% Load true 
 
-% True sRGB at D50 
+% True sRGB at D50
 true_RGB_colors = csvread('gretagmacbeth.csv');
-
-% True gray RGBs are evenly spaced colors between 0,0,0 and 255,255,255
 n_grays = 12;
 interval = 255/(n_grays-1);
 true_RGB_grays = zeros(n_grays,3);
@@ -188,8 +186,7 @@ CCM = RGB \ true_RGB;
 img_col = double(reshape(img,xlen*ylen,3));
 img_col_corr = img_col*CCM;
 img_corr = reshape(img_col_corr,ylen,xlen,3);
-
-f3 = figure(3);
+f3 = figure(3)
 subplot(1,2,1)
 imshow(img_corr/255)
 title('Color Corrected Image')
@@ -202,7 +199,7 @@ title('Original Image')
 
 gt_img = uint8(zeros(ylen,xlen,3));
 
-% Fill in colored squares in order
+% Fill color
 xind = 6;
 yind = 1;
 side = 'top';
@@ -237,7 +234,7 @@ for i = 1:18
     end
 end
 
-% Fill in gray squares in order
+% Fill gray
 xind = 5;
 yind = 2;
 n_row = 1;
@@ -256,7 +253,7 @@ for i = 19:30
     end
 end
 
-f4 = figure(4);
+f4 = figure(4)
 subplot(1,2,1)
 imshow(img_corr/255)
 title('Color Corrected Image')
