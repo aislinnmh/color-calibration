@@ -20,7 +20,8 @@ This will save a single target.png and background.png automatically. It will run
 Step 3: Run color_calibration.m
 - Select the four corners of the target in the image. The squares are then automatically detected and assigned to their true color.
 - Wait for the color correction matrix (CCM) to be calculated and saved to CCM.csv.
-- Check that the color calibration looks as expected in the corrected_v_original.png and corrected_v_truth.png images that were saved to the color-calibration folder. If there are issues, check your target orientation to make sure colors were mapped in the correct order and check detected_rois.png to see if your chosen corners resulted in good square detections.
+- Check that the color calibration looks as expected in corrected_v_original.png and corrected_v_truth.png.
+    - If there are issues, check your target orientation and detected_rois.png to ensure appropriate true colors and target ROIs were used in the calculation.
 
 Step 4: Input the CCM values into SpinView.
 - Open the Processing tab.
