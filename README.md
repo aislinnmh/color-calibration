@@ -5,7 +5,7 @@ Step 1: Take image(s) of the calibration target and background (optional).
 
 At a minimum, you need one image of the calibration target and zero background images. Best practice is to take several images of the target and average them to improve SNR, and a few averaged background images to remove DC. Be sure to:
 - Take image(s) of the target in the same lighting you will be using during imaging.
-- Take background image(s) with no target or lighting (optional).
+- Take background image(s) (optional) with either no target or lighting present, or with the same lighting and a solid black target if you want to account for uneven illumination.
 - Orient image(s) such that target appears horizontal (5 squares high by 6 wide) with the dark brown square in the top right corner. The target being slightly angled (<45 degrees) is fine.
 - Save images into the color-calibration folder with the default name formatting:
     - Single image - "target.png"
