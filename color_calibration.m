@@ -165,18 +165,7 @@ RGB = [RGB_colors; RGB_grays];
 %% Load true RGB values corresponding to each ROI
 
 % True sRGB at D50 
-true_RGB_colors = csvread('gretagmacbeth.csv');
-
-% True gray RGBs are evenly spaced colors between 0,0,0 and 255,255,255
-n_grays = 12;
-interval = 255/(n_grays-1);
-true_RGB_grays = zeros(n_grays,3);
-for i = 0:n_grays-1
-    val = 255 - (i*interval);
-    true_RGB_grays(i+1,:) = [val val val];
-end
-
-true_RGB = [true_RGB_colors; true_RGB_grays];
+true_RGB = csvread('trueRGB.csv');
 
 %% Solve for CCM
 % RGB * CCM = truergb
