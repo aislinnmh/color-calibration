@@ -257,6 +257,7 @@ title('Simulated Ground Truth')
 %% Save CCM
 
 % Save CCM in a csv file
+CCM = CCM'; % Correct orientation
 csvwrite("CCM.csv",CCM);
 
 
