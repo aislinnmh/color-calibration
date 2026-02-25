@@ -4,7 +4,7 @@ Color calibration software for the Image Science Associates ColorGauge target, w
 Step 1: Take image(s) of the calibration target and background (optional).
 
 At a minimum, you need one image of the calibration target and zero background images. Best practice is to take several images of the target and average them to improve SNR, and a few averaged background images to remove DC. Be sure to:
-- Take image(s) of the target in the same lighting you will be using during imaging.
+- Take image(s) of the target with the same lighting and settings you will be using during imaging.
 - Take background image(s) (optional) with either no target or lighting present, or with the same lighting and a solid black target if you want to account for uneven illumination.
 - Orient image(s) such that target appears horizontal (5 squares high by 6 wide) with the dark brown square in the top right corner. The target being slightly angled (<45 degrees) is fine.
 - Save images into the color-calibration folder with the default name formatting:
@@ -24,8 +24,8 @@ Step 3: Run color_calibration.m
     - If there are issues, check your target orientation and detected_rois.png to ensure appropriate true colors and target ROIs were used in the calculation.
 
 Step 4: Input the CCM values into SpinView.
-- Open the Processing tab.
-- Check ISP Enable and Color Transformation Enable.
+- Go to Features --> {Name of Camera} --> Color Transformation Control
+- Check Color Transformation Enable.
 - Select Custom from the RGB Transform Light Source list.
 - Select a gain (e.g. Gain 00) from the Color Transformation Value Selector list and enter the corresponding CCM value in Color Transformation Value.
     - Repeat for all 9 Gain values in the format below:
@@ -36,4 +36,4 @@ Gain10   Gain11   Gain12
 
 Gain20   Gain21   Gain22
 
-- Save the new CCM to the User Set 0 in SpinView so that it loads automatically when you use the camera.
+- Scroll down to User Set Control, ensure the current and default user set is User Set 0, and Execute a User Set Save so that the CCM will load automatically when you use the camera.
